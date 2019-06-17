@@ -1,0 +1,16 @@
+scan_topic: scan
+use_map_topic: true
+initial_pose_x: 0.0
+initial_pose_y: 0.0
+initial_pose_a: 0
+pose: 
+  pose: 
+    position: 
+      x: -10.5727825165
+      y: -3.69539213181
+      z: 0.0
+    orientation: 
+      x: 0.0
+      y: 0.0
+      z: 0.813573610538
+      w: 0.581461933608

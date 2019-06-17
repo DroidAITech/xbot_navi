@@ -1,0 +1,10 @@
+<launch>
+	<!--  ************** map_server  ***************  -->
+	<arg name="map_file"       default="$(find xbot_navi)/map/compete.yaml" />
+	<node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)">
+		<param name="frame_id"                      value="/map" />
+	</node>
+	<!--  **************** Visualisation ****************  -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find xbot_navi)/rviz/input_keypoints.rviz" />
+
+</launch>

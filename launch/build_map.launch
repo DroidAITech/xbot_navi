@@ -1,0 +1,23 @@
+<launch>
+
+	<!-- params configuration -->
+	<param name="/use_sim_time" value="false"/>
+	<include file="$(find xbot_bringup)/launch/xbot.launch" />
+	<include file="$(find xbot_bringup)/launch/rplidar.launch" />
+
+	<!--  ************** Gmapping  ***************  -->
+	<node name="gmapping" pkg="gmapping" type="slam_gmapping">
+		<param name="scan" value="/scan"/>
+		<param name="map_update_interval" value="3.0"/>
+		<param name="xmin" value="-25"/>
+		<param name="xmax" value="25"/>
+		<param name="ymin" value="-25"/>
+		<param name="ymax" value="25"/>
+	</node>
+
+	<!--  ************** Navigation  ***************  -->
+	<include file="$(find xbot_navi)/launch/include/move_base.launch.xml"/>
+
+
+
+</launch>

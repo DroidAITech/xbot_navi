@@ -1,0 +1,19 @@
+<launch>
+
+	<!--  ************** Cartographer  ***************  -->
+	<include file="$(find cartographer_ros)/launch/build_carto.launch" />	
+
+
+	<!-- params configuration -->
+	<param name="/use_sim_time" value="false"/>
+	<include file="$(find xbot_bringup)/launch/xbot.launch" />
+	<include file="$(find xbot_bringup)/launch/rplidar.launch" />
+
+
+
+	<!--  ************** Navigation  ***************  -->
+	<include file="$(find xbot_navi)/launch/include/move_base.launch.xml"/>
+
+
+</launch>
+

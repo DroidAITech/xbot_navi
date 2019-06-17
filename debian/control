@@ -1,0 +1,12 @@
+Source: ros-kinetic-xbot-navi
+Section: misc
+Priority: extra
+Maintainer: lee <lee@todo.todo>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-roscpp, ros-kinetic-rospy, ros-kinetic-std-msgs, ros-kinetic-sensor-msgs, ros-kinetic-visualization-msgs, ros-kinetic-xbot-talker, ros-kinetic-xbot-face
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-xbot-navi
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-catkin, ros-kinetic-roscpp, ros-kinetic-rospy, ros-kinetic-std-msgs, ros-kinetic-sensor-msgs, ros-kinetic-visualization-msgs, ros-kinetic-xbot-talker, ros-kinetic-xbot-face
+Description: The xbot_navi package

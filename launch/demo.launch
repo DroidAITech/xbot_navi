@@ -1,0 +1,49 @@
+<launch>
+	<!--  ************** Parameters configuration  ***************  -->
+	<param name="/use_sim_time" value="false"/>
+
+	<!--  ************** xbot bringup  ***************  -->
+	<include file="$(find xbot_bringup)/launch/xbot.launch" />
+
+	<!--  ************** Sick lidar  ***************  -->
+	<include file="$(find xbot_bringup)/launch/rplidar.launch" />
+
+	<!--  ************** map_server  ***************  -->
+	<arg name="map_file"       default="$(find xbot_navi)/map/compete.yaml" />
+	<node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)">
+		<param name="frame_id"                      value="/map" />
+	</node>
+
+
+	<!--  ************** Amcl  ***************  -->
+	<include file="$(find xbot_navi)/launch/include/amcl.launch.xml">
+		<arg name = "scan_topic"                        value="scan" />
+		<arg name = "use_map_topic"                     value="true" />
+		<arg name = "initial_pose_x"                    value="0.0" />
+		<arg name = "initial_pose_y"                    value="0.0" />
+		<arg name = "initial_pose_a"                    value="-1.57" />
+	</include>
+
+	<!--  ************** Navigation  ***************  -->
+	<include file="$(find xbot_navi)/launch/include/move_base.launch.xml"/>
+
+
+
+
+	<!--  ************** xbot talker  ***************  -->
+	<include file="$(find xbot_talker)/launch/talker.launch"/>
+
+	<!-- face recog camera image -->
+	<node name="pub_camera_image" pkg="xbot_face" type="pub_camera_image" >
+	</node>
+
+	<include file="$(find xbot_face)/launch/face_recog.launch"/>
+
+	<!--  ************** slam  ***************  -->
+	<node name = "compete" pkg = "xbot_navi" type = "demo.py">
+		<param name = "/compete/kp_path" value = "$(find xbot_navi)/script/compete/demo/kp.json" />
+		<param name = "/compete/greet_path" value = "$(find xbot_navi)/script/compete/demo/greet.json" />
+	</node>
+
+
+</launch>

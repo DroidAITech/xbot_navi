@@ -1,0 +1,6 @@
+<launch>
+	
+	<!--  **************** Visualisation ****************  -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find xbot_navi)/rviz/input_keypoints.rviz" />
+
+</launch>

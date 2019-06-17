@@ -1,0 +1,6 @@
+<launch>
+    <arg name="map_file"       default="$(find xbot_navi)/map/museum_gmapping1.4.yaml" />
+    <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)">
+            <param name="frame_id"          value="/map" />
+    </node>
+</launch>
