@@ -28,9 +28,9 @@ class demo():
 		self.visit_sub = rospy.Subscriber('/demo/visit', Bool, self.visitCB)
 
 		# 请求chat服务
-		self.chat_srv = rospy.ServiceProxy('/chat',chat)
+		self.chat_srv = rospy.ServiceProxy('/xbot/chat',chat)
 		# 请求播放服务
-		self.play_srv = rospy.ServiceProxy('/play',play)
+		self.play_srv = rospy.ServiceProxy('/xbot/play',play)
 
 
 #        记录机器人当前的目标点
